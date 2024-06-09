@@ -184,6 +184,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RecipeController.cs" />
+    <Compile Include="Controllers\RecipeDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -214,6 +216,10 @@
     <Compile Include="Migrations\202406080140237_usercommentfk.cs" />
     <Compile Include="Migrations\202406080140237_usercommentfk.Designer.cs">
       <DependentUpon>202406080140237_usercommentfk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406081547515_dbcontext.cs" />
+    <Compile Include="Migrations\202406081547515_dbcontext.Designer.cs">
+      <DependentUpon>202406081547515_dbcontext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -296,6 +302,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Recipe\List.cshtml" />
+    <Content Include="Views\Recipe\Show.cshtml" />
+    <Content Include="Views\Recipe\New.cshtml" />
+    <Content Include="Views\Recipe\Error.cshtml" />
+    <Content Include="Views\Recipe\DeleteConfirm.cshtml" />
+    <Content Include="Views\Recipe\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -348,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202406080140237_usercommentfk.resx">
       <DependentUpon>202406080140237_usercommentfk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406081547515_dbcontext.resx">
+      <DependentUpon>202406081547515_dbcontext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

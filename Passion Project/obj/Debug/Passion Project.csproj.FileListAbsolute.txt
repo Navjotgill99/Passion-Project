@@ -120,3 +120,4 @@ C:\Users\navjo\source\repos\Passion Project\Passion Project\obj\Debug\Passion_Pr
 C:\Users\navjo\source\repos\Passion Project\Passion Project\obj\Debug\Passion_Project.Migrations.recipeauthor.resources
 C:\Users\navjo\source\repos\Passion Project\Passion Project\obj\Debug\Passion_Project.Migrations.user.resources
 C:\Users\navjo\source\repos\Passion Project\Passion Project\obj\Debug\Passion_Project.Migrations.usercommentfk.resources
+C:\Users\navjo\source\repos\Passion Project\Passion Project\obj\Debug\Passion_Project.Migrations.dbcontext.resources

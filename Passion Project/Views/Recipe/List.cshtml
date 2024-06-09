@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Passion_Project.Models.RecipeDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<div id="containerlist">
+    <nav>
+        <a class="navlink" href="/Recipe/New">Add New recipe</a>
+    </nav>
+    <h2>List Recipes</h2>
+    @foreach (var Recipe in Model)
+    {
+        <div class="list-group-item row">
+            <div class="col-md-12"><a href="Show/@Recipe.RecipeId">@Recipe.RecipeName (@Recipe.RecipeAuthor)</a></div>
+        </div>
+    }
+</div>
+
+

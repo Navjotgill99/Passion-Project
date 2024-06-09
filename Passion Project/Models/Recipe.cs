@@ -20,4 +20,20 @@ namespace Passion_Project.Models
 
         public string RecipeAuthor { get; set; }
     }
+
+    //A data transfer object (DTO)
+    //Communicating the recipe information externally
+    public class RecipeDto
+    {
+        public int RecipeId { get; set; }
+
+        public string RecipeName { get; set; }
+
+        public string RecipeIngredient { get; set; }
+
+        public string RecipeInstruction { get; set; }
+
+        public string RecipeAuthor { get; set; }
+    }
+
 }

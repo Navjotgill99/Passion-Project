@@ -31,6 +31,8 @@ namespace Passion_Project.Models
 
         public DbSet<Comment> Comments { get; set; }
 
+        public DbSet<User> users { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

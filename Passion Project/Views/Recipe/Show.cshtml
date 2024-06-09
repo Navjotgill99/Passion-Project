@@ -1,0 +1,22 @@
+﻿@model Passion_Project.Models.RecipeDto
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<div id="containershow">
+    <nav>
+        <a class="navlink" href="/Recipe/list">Go back to list</a>
+    </nav>
+    <h2>@Model.RecipeName</h2>
+    <p><strong>Ingredients: </strong>@Model.RecipeIngredient</p>
+    <p><strong>Instructions: </strong>@Model.RecipeInstruction</p>
+    <p><strong>Author: </strong>@Model.RecipeAuthor</p>
+    <h3><strong>Comments: </strong></h3>
+
+    <nav>
+        <a class="dellink" href="/Recipe/DeleteConfirm/@Model.RecipeId">Delete</a>
+    </nav>
+
+</div>
+

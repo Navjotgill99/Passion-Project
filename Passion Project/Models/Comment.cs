@@ -25,14 +25,7 @@ namespace Passion_Project.Models
 
         //Many users can comment many times
         [ForeignKey("User")]
-        public int UserId {  get; set; }
+        public int UserId { get; set; }
         public virtual User User { get; set; }
-
-
-
-
-
-
-
     }
 }
