@@ -4,27 +4,30 @@
     ViewBag.Title = "Show";
 }
 
-<div id="containershow">
+<div class="main-container">
     <nav>
         <a class="navlink" href="/Recipe/list">Go back to list</a>
-        <a href="/Recipe/Edit/@Model.Recipe.RecipeId">Edit Recipe</a>
-        <a class="dellink" href="/Recipe/DeleteConfirm/@Model.Recipe.RecipeId">Delete Recipe</a>
+        <a class="navlink" href="/Recipe/Edit/@Model.Recipe.RecipeId">Edit Recipe</a>
+        <a class="navlink" href="/Recipe/DeleteConfirm/@Model.Recipe.RecipeId">Delete Recipe</a>
     </nav>
     <h2>@Model.Recipe.RecipeName</h2> (<strong>Author: </strong> @Model.Recipe.RecipeAuthor)
     <p><strong>Ingredients: </strong>@Model.Recipe.RecipeIngredient</p>
     <p><strong>Instructions: </strong>@Model.Recipe.RecipeInstruction</p>
+
+    <nav>
+        <a class="navlink" href="/Comment/New?recipeId=@Model.Recipe.RecipeId">Add Comment</a>
+    </nav>
 
     <h3><strong>Comments: </strong></h3>
     @foreach (var comment in Model.Comments)
     {
         <div>
             <p>[UserId: @comment.UserId]: @comment.CommentText (@comment.CommentTime.ToString("g"))</p>
-            <a href="/Comment/Edit/@comment.CommentId">Edit</a>
-            <a href="/Comment/DeleteConfirm/@comment.CommentId">Delete Comment</a>
+            <nav>
+                <a class="navlink" href="/Comment/Edit/@comment.CommentId">Edit Comment</a>
+                <a class="navlink" href="/Comment/DeleteConfirm/@comment.CommentId">Delete Comment</a>
+            </nav>
         </div>
     }
-    <nav>
-        <a class="navlink" href="/Comment/New?recipeId=@Model.Recipe.RecipeId">Add Comment</a>
-    </nav>
 </div>
 

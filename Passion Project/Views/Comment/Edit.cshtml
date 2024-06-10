@@ -3,7 +3,7 @@
     ViewBag.Title = "Edit";
 }
 
-<div id="containeredit">
+<div class="main-container">
     <nav>
         <a class="navlink" href="/Recipe/Show/@Model.RecipeId">Back to Recipe</a>
     </nav>
@@ -21,7 +21,7 @@
         <input type="hidden" name="RecipeId" value="@Model.RecipeId" />
         <input type="hidden" name="UserId" value="@Model.UserId" />
         <div>
-            <input type="submit" value="Update Comment" />
+            <button type="submit">Update Comment</button>
         </div>
     </form>
 </div>

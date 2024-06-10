@@ -3,11 +3,11 @@
     ViewBag.Title = "List";
 }
 
-<div id="containerlist">
+<div class="main-container">
     <nav>
-        <a class="navlink" href="/Recipe/New">Add New recipe</a>
+        <a class="navlink" href="/Recipe/New">Add New Recipe</a>
     </nav>
-    <h2>List Recipes</h2>
+    <h2>Recipe List</h2>
     @foreach (var Recipe in Model)
     {
         <div class="list-group-item row">
