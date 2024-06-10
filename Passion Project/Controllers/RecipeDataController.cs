@@ -18,9 +18,9 @@ namespace Passion_Project.Controllers
         /// <summary>
         /// Returns a list of recipes in the system
         /// </summary>
-        /// <returns>An array of recipes</returns>
+        /// <returns>An array of RecipeDto objects.</returns>
         // <example>
-        // GET: /api/RecipeData/ListRecipes -> [{}]
+        // GET: /api/RecipeData/ListRecipes -> [{"RecipeId":2,"RecipeName":"Chocolate Chip Cookies","RecipeIngredient":"- 200g flour - 100g sugar - - 200g chocolate chips" and so on,"RecipeInstruction":"1. Preheat oven to 175°C (350°F). 2. Mix butter, sugars, egg, and vanilla. 3. Add flour and baking soda, mix well." ,"RecipeAuthor":"Nav"}]
         //</example>
         [HttpGet]
         [Route("api/RecipeData/ListRecipes")]
@@ -44,10 +44,10 @@ namespace Passion_Project.Controllers
 
         
         /// <summary>
-        /// Returns one recipe
+        /// Returns one recipe by its ID.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns> A singular recipe</returns>
+        /// <param name="id">The ID of the recipe to find.</param>
+        /// <returns>A singular RecipeDto object.</returns>
         [ResponseType(typeof(Recipe))]
         [HttpGet]
         [Route("api/RecipeData/FindRecipe/{id}")]
@@ -70,10 +70,10 @@ namespace Passion_Project.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Adds a new recipe to the system.
         /// </summary>
-        /// <param name="recipe"></param>
-        /// <returns></returns>
+        /// <param name="recipe">The Recipe object to add.</param>
+        /// <returns>HTTP response indicating success or failure.</returns>
         [ResponseType(typeof (Recipe))]
         [HttpPost]
         [Route("api/RecipeData/AddRecipe")]
@@ -91,29 +91,29 @@ namespace Passion_Project.Controllers
 
 
         /// <summary>
-        /// 
+        /// Updates an existing recipe by its ID.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="recipe"></param>
-        /// <returns></returns>
+        /// <param name="id">The ID of the recipe to update.</param>
+        /// <param name="recipe">The updated Recipe object.</param>
+        /// <returns>HTTP response indicating success or failure.</returns>
         [ResponseType(typeof (void))]
         [HttpPost]
         [Route("api/RecipeData/UpdateRecipe/{id}")]
         public IHttpActionResult UpdateRecipe(int id, Recipe recipe)
         {
-            Debug.WriteLine("I have reached the update recipe method!");
+            //Debug.WriteLine("I have reached the update recipe method!");
             if (!ModelState.IsValid)
             {
-                Debug.WriteLine("Model State is invalid");
+                //Debug.WriteLine("Model State is invalid");
                 return BadRequest(ModelState);
             }
 
             if (id != recipe.RecipeId)
             {
-                Debug.WriteLine("Id Mismatch");
-                Debug.WriteLine("GET parameter" + id);
-                Debug.WriteLine("POST parameter" + recipe.RecipeId);
-                Debug.WriteLine("POST parameter" + recipe.RecipeName);
+                //Debug.WriteLine("Id Mismatch");
+                //Debug.WriteLine("GET parameter" + id);
+                //Debug.WriteLine("POST parameter" + recipe.RecipeId);
+                //Debug.WriteLine("POST parameter" + recipe.RecipeName);
                 return BadRequest();
             }
 
@@ -127,7 +127,7 @@ namespace Passion_Project.Controllers
             {
                 if (!RecipeExists(id))
                 {
-                    Debug.WriteLine("Recipe not found");
+                    //Debug.WriteLine("Recipe not found");
                     return NotFound();
                 }
                 else
@@ -135,36 +135,15 @@ namespace Passion_Project.Controllers
                     throw;
                 }
             }
-            Debug.WriteLine("None of the conditions triggered");
+            //Debug.WriteLine("None of the conditions triggered");
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-
         /// <summary>
-        /// 
+        /// Deletes a recipe by its ID.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        private bool RecipeExists(int id)
-        {
-            return db.Recipes.Count(r => r.RecipeId == id) > 0;
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The ID of the recipe to delete.</param>
+        /// <returns>HTTP response indicating success or failure.</returns>
         [ResponseType(typeof(Recipe))]
         [HttpPost]
         [Route("api/RecipeData/DeleteRecipe/{id}")]
@@ -182,8 +161,28 @@ namespace Passion_Project.Controllers
             return Ok();
         }
 
-        
-           
+        /// <summary>
+        /// Disposes of the database context.
+        /// </summary>
+        /// <param name="disposing">Whether the context is being disposed.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
+
+        /// <summary>
+        /// Checks if a recipe exists by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the recipe to check.</param>
+        /// <returns>True if the recipe exists, false otherwise.</returns>
+        private bool RecipeExists(int id)
+        {
+            return db.Recipes.Count(r => r.RecipeId == id) > 0;
+        }
     }
 }

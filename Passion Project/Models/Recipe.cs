@@ -19,6 +19,8 @@ namespace Passion_Project.Models
         public string RecipeInstruction { get; set; }
 
         public string RecipeAuthor { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
     }
 
     //A data transfer object (DTO)

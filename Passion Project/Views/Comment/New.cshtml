@@ -1,0 +1,23 @@
+﻿@model Passion_Project.Models.Comment
+@{
+    ViewBag.Title = "New";
+}
+
+<div id="containershow">
+    <nav>
+        <a class="navlink" href="/Recipe/Show/@Model.RecipeId">Back to Recipe</a>
+    </nav>
+    <h4>Add a Comment</h4>
+    <form action="/Comment/Create" method="post">
+        <input type="hidden" name="RecipeId" value="@Model.RecipeId" />
+        <input type="hidden" name="UserId" value="2" /> <!-- Assume logged-in user ID is 1 for now -->
+        <div>
+            <label for="CommentText">Comment: </label>
+            <textarea name="CommentText" required></textarea>
+        </div>
+        <div>
+            <button type="submit">Add Comment</button>
+        </div>
+    </form>
+</div>
+

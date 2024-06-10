@@ -1,4 +1,4 @@
-﻿@model Passion_Project.Models.RecipeDto
+﻿@model Passion_Project.Models.RecipeCommentsViewModel
 
 @{
     ViewBag.Title = "Show";
@@ -7,16 +7,24 @@
 <div id="containershow">
     <nav>
         <a class="navlink" href="/Recipe/list">Go back to list</a>
+        <a href="/Recipe/Edit/@Model.Recipe.RecipeId">Edit Recipe</a>
+        <a class="dellink" href="/Recipe/DeleteConfirm/@Model.Recipe.RecipeId">Delete Recipe</a>
     </nav>
-    <h2>@Model.RecipeName</h2>
-    <p><strong>Ingredients: </strong>@Model.RecipeIngredient</p>
-    <p><strong>Instructions: </strong>@Model.RecipeInstruction</p>
-    <p><strong>Author: </strong>@Model.RecipeAuthor</p>
+    <h2>@Model.Recipe.RecipeName</h2> (<strong>Author: </strong> @Model.Recipe.RecipeAuthor)
+    <p><strong>Ingredients: </strong>@Model.Recipe.RecipeIngredient</p>
+    <p><strong>Instructions: </strong>@Model.Recipe.RecipeInstruction</p>
+
     <h3><strong>Comments: </strong></h3>
-
+    @foreach (var comment in Model.Comments)
+    {
+        <div>
+            <p>[UserId: @comment.UserId]: @comment.CommentText (@comment.CommentTime.ToString("g"))</p>
+            <a href="/Comment/Edit/@comment.CommentId">Edit</a>
+            <a href="/Comment/DeleteConfirm/@comment.CommentId">Delete Comment</a>
+        </div>
+    }
     <nav>
-        <a class="dellink" href="/Recipe/DeleteConfirm/@Model.RecipeId">Delete</a>
+        <a class="navlink" href="/Comment/New?recipeId=@Model.Recipe.RecipeId">Add Comment</a>
     </nav>
-
 </div>
 

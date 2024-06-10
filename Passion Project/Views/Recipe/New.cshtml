@@ -8,55 +8,6 @@
         <a class="navlink" href="/Recipe/List">Back to Recipes</a>
     </nav>
     <h2>Create Recipe</h2>
-    <script>
-    window.onload = function () {
-        var formHandle = document.forms.form_create;
-        formHandle.onsubmit = processForm;
-
-        function processForm() {
-            var RecipeName = formHandle.RecipeName;
-            var RecipeIngredients = formHandle.RecipeIngredients;
-            var RecipeInstructions = formHandle.RecipeInstructions;
-            var RecipeAuthor = formHandle.RecipeAuthor;
-
-            if (RecipeName.value === "") {
-                RecipeName.style.background = "red";
-                RecipeName.focus();
-                return false;
-            }
-            else {
-                RecipeName.style.background = "white";
-            }
-
-            if (RecipeIngredients.value === "") {
-                RecipeIngredients.style.background = "red";
-                RecipeIngredients.focus();
-                return false;
-            }
-            else {
-                RecipeIngredients.style.background = "white";
-            }
-            
-            if (RecipeInstructions.value === "") {
-                RecipeInstructions.style.background = "red";
-                RecipeInstructions.focus();
-                return false;
-            }
-            else {
-                RecipeInstructions.style.background = "white";
-            }
-
-            if (RecipeAuthor.value === "") {
-                RecipeAuthor.style.background = "red";
-                RecipeAuthor.focus();
-                return false;
-            }
-            else {
-                RecipeAuthor.style.background = "white";
-            }
-        }
-    }
-    </script>
 
     <form action="/Recipe/Create" method="POST">
         <div>
@@ -66,7 +17,7 @@
             <label for="Ingredients">Ingredients: </label><input type="text" name="RecipeIngredient" />
         </div>
         <div>
-            <label for="Instructions">Instructions: </label><input type="text" name="RecipeInstructions" />
+            <label for="Instructions">Instructions: </label><input type="text" name="RecipeInstruction" />
         </div>
         <div>
             <label for="Author">Author: </label><input type="text" name="RecipeAuthor" />

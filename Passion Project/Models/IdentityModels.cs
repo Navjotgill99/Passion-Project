@@ -27,11 +27,9 @@ namespace Passion_Project.Models
         }
 
         //Gateway between our C# and our Database
-        public DbSet<Recipe> Recipes { get; set; }
-
-        public DbSet<Comment> Comments { get; set; }
-
         public DbSet<User> users { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         public static ApplicationDbContext Create()
         {

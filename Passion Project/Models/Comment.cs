@@ -14,7 +14,7 @@ namespace Passion_Project.Models
 
         public string CommentText { get; set; }
 
-        public DateTime CommentTime { get; set; }
+        public DateTime CommentTime { get; set; } = DateTime.Now;
 
         //A comment can be under one recipe
         //A recipe can have many comments
@@ -27,5 +27,15 @@ namespace Passion_Project.Models
         [ForeignKey("User")]
         public int UserId { get; set; }
         public virtual User User { get; set; }
+    }
+
+    public class CommentDto
+    {
+        public int CommentId { get; set; }
+        public string CommentText { get; set; }
+        public DateTime CommentTime { get; set; }
+        public int RecipeId { get; set; }
+        public int UserId { get; set; }
+
     }
 }

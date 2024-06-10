@@ -1,0 +1,28 @@
+﻿@model Passion_Project.Models.CommentDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div id="containeredit">
+    <nav>
+        <a class="navlink" href="/Recipe/Show/@Model.RecipeId">Back to Recipe</a>
+    </nav>
+    <h2>Edit Comment</h2>
+
+    <form action="/Comment/Update/@Model.CommentId" method="POST">
+        <div>
+            <label for="CommentText">Comment: </label>
+            <textarea name="CommentText" rows="4" cols="50">@Model.CommentText</textarea>
+        </div>
+        <div>
+            <label for="CommentTime">Time: </label>
+            <input type="datetime-local" name="CommentTime" value="@Model.CommentTime.ToString("yyyy-MM-ddTHH:mm:ss")" />
+        </div>
+        <input type="hidden" name="RecipeId" value="@Model.RecipeId" />
+        <input type="hidden" name="UserId" value="@Model.UserId" />
+        <div>
+            <input type="submit" value="Update Comment" />
+        </div>
+    </form>
+</div>
+
