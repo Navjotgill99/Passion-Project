@@ -15,6 +15,31 @@ namespace Passion_Project.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+        [HttpGet]
+        [ResponseType(typeof(CommentDto))]
+        [Route("api/CommentData/ListComments")]
+        public List<CommentDto> ListComments()
+        {
+            List<Comment> Comments = db.Comments.ToList();
+
+            List<CommentDto> CommentDtos = new List<CommentDto>();
+
+            foreach (Comment Comment in Comments)
+            {
+                CommentDto CommentDto = new CommentDto();
+                CommentDto.CommentId = Comment.CommentId;
+                CommentDto.CommentText = Comment.CommentText;
+                CommentDto.CommentTime = Comment.CommentTime;
+                CommentDto.RecipeId = Comment.RecipeId;
+                //CommentDto.UserName = Comment.User.UserName;
+
+                CommentDtos.Add(CommentDto);
+            }
+            return CommentDtos;
+        }
+
+
         /// <summary>
         /// Retrieves a list of comments for a specific recipe.
         /// </summary>
@@ -45,7 +70,7 @@ namespace Passion_Project.Controllers
         /// <param name="id">The ID of the comment.</param>
         /// <returns>An IHttpActionResult containing the CommentDto object if found, or NotFound response if not found.</returns>
         [HttpGet]
-        [ResponseType(typeof(CommentDto))]
+        [ResponseType(typeof(Comment))]
         [Route("api/CommentData/FindComment/{id}")]
         public IHttpActionResult FindComment(int id)
         {

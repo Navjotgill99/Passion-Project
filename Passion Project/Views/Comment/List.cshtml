@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Passion_Project.Models.CommentDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="main-container">
+    <h2>Comment List</h2>
+    @foreach (var Comment in Model)
+    {
+        <div class="list-group-item row">
+            <div class="col-md-12"><a href="Show/@Comment.CommentId">CommentId: @Comment.CommentId</a></div>
+            <p>@Comment.CommentText</p>
+        </div>
+    }
+</div>

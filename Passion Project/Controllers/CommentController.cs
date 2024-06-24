@@ -20,6 +20,35 @@ namespace Passion_Project.Controllers
             client.BaseAddress = new Uri("https://localhost:44399/api/CommentData/");
         }
 
+        // GET: Comment/List
+        public ActionResult List()
+        {
+            //curl https://localhost:44399/api/commentdata/listcomments
+
+            string url = "listcomments";
+
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            IEnumerable<CommentDto> Comments = response.Content.ReadAsAsync<IEnumerable<CommentDto>>().Result;
+
+            return View(Comments);
+        }
+
+        //GET: Comment/Show/{id}
+        public ActionResult Show(int id)
+        {
+            //curl https://localhost:44399/api/commentdata/findcomment/{id}
+
+            string url = "findcomment/" + id;
+
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            CommentDto Comment = response.Content.ReadAsAsync<CommentDto>().Result;
+
+            return View(Comment);
+        }
+
+
         /// <summary>
         /// Displays the view for creating a new comment.
         /// </summary>
@@ -61,7 +90,7 @@ namespace Passion_Project.Controllers
             }
             else
             {
-                return RedirectToAction("Error", "Recipe");
+                return RedirectToAction("Error");
             }
         }
 
@@ -121,7 +150,7 @@ namespace Passion_Project.Controllers
             }
             else
             {
-                return RedirectToAction("Error", "Recipe");
+                return RedirectToAction("Error");
             }
         }
 
@@ -161,7 +190,7 @@ namespace Passion_Project.Controllers
             }
             else
             {
-                return RedirectToAction("Error", "Recipe");
+                return RedirectToAction("Error");
             }
         }
     }

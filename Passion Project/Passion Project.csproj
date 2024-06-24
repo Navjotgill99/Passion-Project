@@ -314,6 +314,9 @@
     <Content Include="Views\Comment\New.cshtml" />
     <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\DeleteConfirm.cshtml" />
+    <Content Include="Views\Comment\Error.cshtml" />
+    <Content Include="Views\Comment\List.cshtml" />
+    <Content Include="Views\Comment\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

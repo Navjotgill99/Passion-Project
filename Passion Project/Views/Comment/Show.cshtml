@@ -1,0 +1,18 @@
+﻿@model Passion_Project.Models.CommentDto
+@{
+    ViewBag.Title = "Show";
+}
+
+<div class="main-container">
+    <nav>
+        <a class="navlink" href="/Comment/list">Go back to list</a>
+    </nav>
+
+    <h2></h2>
+    <p>CommentId: @Model.CommentId</p>
+    <p>RecipeId: @Model.RecipeId</p>
+
+    <p>Comment: @Model.CommentText</p>
+
+    <p>User: @Model.UserId</p>
+</div>

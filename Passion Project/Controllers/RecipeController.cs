@@ -27,6 +27,8 @@ namespace Passion_Project.Controllers
         // GET: Recipe/List
         public ActionResult List()
         {
+            //curl https://localhost:44399/api/recipedata/listrecipes
+
             string url = "ListRecipes";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
@@ -43,6 +45,9 @@ namespace Passion_Project.Controllers
         // Get: Recipe/Show/{id}
         public ActionResult Show(int id)
         {
+            //curl https://localhost:44399/api/recipedata/findrecipe/{id}
+
+
             //access data for find recipe
             string url = "FindRecipe/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
@@ -90,6 +95,8 @@ namespace Passion_Project.Controllers
         [HttpPost]
         public ActionResult Create(Recipe recipe)
         {
+            //curl -H "Content-Type:application/json" -d @recipe.json https://localhost:44399/api/recipedata/addrecipe
+
             Debug.WriteLine("the json payload is :");
 
             string url = "AddRecipe";
@@ -120,6 +127,8 @@ namespace Passion_Project.Controllers
         //GET: Recipe/Edit/4
         public ActionResult Edit(int id)
         {
+            //curl https://localhost:44399/api/recipedata/findrecipe/{id}
+
             string url = "FindRecipe/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
