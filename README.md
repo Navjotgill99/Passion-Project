@@ -53,44 +53,31 @@ Update-Database
 
 ## Project Structure
 * **Controllers:** Handles the application logic and user input.
- * **HomeController:** Manages the home page and general navigation.
- * **RecipeController:** Handles CRUD operations for recipes.
- * **CommentController:** Manages CRUD operations for comments.
- * **AccountController:** Manages user registration and authentication.
+  * **HomeController:** Manages the home page and general navigation.
+  * **RecipeController:** Handles CRUD operations for recipes.
+  * **CommentController:** Manages CRUD operations for comments.
+  * **AccountController:** Manages user registration and authentication.
 
 * **Models:** Defines the data structure of the application.
- * **User:** Represents an application user.
- * **Recipe:** Represents a recipe.
- * **Comment:** Represents a comment on a recipe.
+  * **User:** Represents an application user.
+  * **Recipe:** Represents a recipe.
+  * **Comment:** Represents a comment on a recipe.
 
 * **Views:** Contains the Razor views for rendering the user interface.
- * **Shared:** Common layouts and partial views.
- * **Recipe:** Views for creating, editing, and displaying recipes.
- * **Comment:** Views for creating and displaying comments.
- * **Account:** Views for user registration and login.
+  * **Shared:** Common layouts and partial views.
+  * **Recipe:** Views for creating, editing, and displaying recipes.
+  * **Comment:** Views for creating and displaying comments.
+  * **Account:** Views for user registration and login.
 
 * **Data**: Manages the database context and migrations.
- * **ApplicationDbContext:** The main database context class.
+  * **ApplicationDbContext:** The main database context class.
 
 ## Contribution
+Contributions are welcome:
 1. Fork the repository.
-2. Create a new branch:
-```
-sh
-git checkout -b feature-name
-```
-3. Make your changes.
-4. Commit your changes:
-```
-sh
-git commit -m "Description of changes"
-```
-5. Push to the branch:
-```
-sh
-git push origin feature-name
-```
-6. Open a pull request.
+2. Create a new branch
+3. Commit and push changes:
+4. Open a pull request.
 
 ## Contact
 For any questions or suggestions, please open an issue on GitHub.
