@@ -21,7 +21,7 @@ Passion Project is an ASP.NET MVC application designed for sharing and managing 
 ## Installation
 1. **Clone the repository:**
 ```sh
-git clone https://github.com/your-username/passion-project.git
+git clone https://github.com/Navjotgill99/Passion-Project.git
 cd passion-project
 ```
 2. **Open the solution:**
