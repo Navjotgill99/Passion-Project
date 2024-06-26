@@ -11,16 +11,23 @@
 
     <form action="/Recipe/Create" method="POST">
         <div>
-            <label for="Name">Name: </label><input type="text" name="RecipeName" />
+            <label for="Name">Name: </label>
+            <input type="text" name="RecipeName" />
         </div>
         <div>
-            <label for="Ingredients">Ingredients: </label><input type="text" name="RecipeIngredient" />
+            <label for="Ingredients">Ingredients: </label>
+            <input type="text" name="RecipeIngredient" />
         </div>
         <div>
-            <label for="Instructions">Instructions: </label><input type="text" name="RecipeInstruction" />
+            <label for="Instructions">Instructions: </label>
+            <input type="text" name="RecipeInstruction" />
         </div>
         <div>
-            <label for="Author">Author: </label><input type="text" name="RecipeAuthor" />
+            <input type="hidden" name="UserID" value="@ViewBag.UserId" />
+        </div>
+        <div>
+            <label for="Username">User Name: </label>
+            <input type="text" name="UserName" value="@ViewBag.UserName" />
         </div>
         <div>
             <button type="submit">Add Recipe</button>

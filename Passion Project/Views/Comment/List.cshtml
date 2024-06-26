@@ -8,7 +8,7 @@
     @foreach (var Comment in Model)
     {
         <div class="list-group-item row">
-            <div class="col-md-12"><a href="Show/@Comment.CommentId">CommentId: @Comment.CommentId</a></div>
+            <div class="col-md-12"><strong><a href="Show/@Comment.CommentId">CommentId: @Comment.CommentId</a></strong></div>
             <p>@Comment.CommentText</p>
         </div>
     }

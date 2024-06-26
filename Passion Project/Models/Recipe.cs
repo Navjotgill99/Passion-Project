@@ -18,7 +18,13 @@ namespace Passion_Project.Models
 
         public string RecipeInstruction { get; set; }
 
-        public string RecipeAuthor { get; set; }
+        //A Recipe is Posted by one user
+        //A User can post many recipes
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
+
+        public string UserName { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
     }
@@ -36,6 +42,9 @@ namespace Passion_Project.Models
         public string RecipeInstruction { get; set; }
 
         public string RecipeAuthor { get; set; }
+
+        public string UserId { get; set; }
+        public string UserName { get; set; }
     }
 
 }

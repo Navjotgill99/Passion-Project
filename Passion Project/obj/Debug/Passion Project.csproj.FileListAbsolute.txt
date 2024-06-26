@@ -244,3 +244,7 @@ C:\Users\navjo\source\repos\Passion-Project\Passion Project\obj\Debug\Passion Pr
 C:\Users\navjo\source\repos\Passion-Project\Passion Project\obj\Debug\Passion .3DB0FC69.Up2Date
 C:\Users\navjo\source\repos\Passion-Project\Passion Project\obj\Debug\Passion Project.dll
 C:\Users\navjo\source\repos\Passion-Project\Passion Project\obj\Debug\Passion Project.pdb
+C:\Users\navjo\source\repos\Passion-Project\Passion Project\obj\Debug\Passion_Project.Migrations.RemoveUserModel.resources
+C:\Users\navjo\source\repos\Passion-Project\Passion Project\obj\Debug\Passion_Project.Migrations.updaterecipe.resources
+C:\Users\navjo\source\repos\Passion-Project\Passion Project\obj\Debug\Passion_Project.Migrations.updatemodels.resources
+C:\Users\navjo\source\repos\Passion-Project\Passion Project\obj\Debug\Passion_Project.Migrations.recipeusername.resources

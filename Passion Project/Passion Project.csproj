@@ -223,6 +223,22 @@
     <Compile Include="Migrations\202406081547515_dbcontext.Designer.cs">
       <DependentUpon>202406081547515_dbcontext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406250417378_RemoveUserModel.cs" />
+    <Compile Include="Migrations\202406250417378_RemoveUserModel.Designer.cs">
+      <DependentUpon>202406250417378_RemoveUserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406250434308_updaterecipe.cs" />
+    <Compile Include="Migrations\202406250434308_updaterecipe.Designer.cs">
+      <DependentUpon>202406250434308_updaterecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406251305056_updatemodels.cs" />
+    <Compile Include="Migrations\202406251305056_updatemodels.Designer.cs">
+      <DependentUpon>202406251305056_updatemodels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406251606026_recipeusername.cs" />
+    <Compile Include="Migrations\202406251606026_recipeusername.Designer.cs">
+      <DependentUpon>202406251606026_recipeusername.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -230,7 +246,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeCommentsViewModel.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -372,6 +387,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202406081547515_dbcontext.resx">
       <DependentUpon>202406081547515_dbcontext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406250417378_RemoveUserModel.resx">
+      <DependentUpon>202406250417378_RemoveUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406250434308_updaterecipe.resx">
+      <DependentUpon>202406250434308_updaterecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406251305056_updatemodels.resx">
+      <DependentUpon>202406251305056_updatemodels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406251606026_recipeusername.resx">
+      <DependentUpon>202406251606026_recipeusername.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

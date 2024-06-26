@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using Microsoft.AspNet.Identity;
 using Passion_Project.Models;
 
 namespace Passion_Project.Controllers
@@ -21,7 +22,7 @@ namespace Passion_Project.Controllers
             client.BaseAddress = new Uri("https://localhost:44399/api/RecipeData/");
         }
         /// <summary>
-        /// Lists all recipes.
+        /// Lists all recipes in the system.
         /// </summary>
         /// <returns>A view with a list of RecipeDto objects.</returns>
         // GET: Recipe/List
@@ -32,16 +33,26 @@ namespace Passion_Project.Controllers
             string url = "ListRecipes";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
-            IEnumerable<RecipeDto> Recipes = response.Content.ReadAsAsync<IEnumerable<RecipeDto>>().Result;
-            //Access data for list recipes
-            return View(Recipes);
+            if (response.IsSuccessStatusCode)
+            {
+                IEnumerable<RecipeDto> Recipes = response.Content.ReadAsAsync<IEnumerable<RecipeDto>>().Result;
+                Debug.WriteLine("Number of recipes in the list: " + Recipes.Count());
+                //Access data for list recipes
+                return View(Recipes);
+            }
+            else
+            {
+                Debug.WriteLine("Error retrieving recipes: " + response.ReasonPhrase);
+                return RedirectToAction("Error");
+            }
+            
         }
 
         /// <summary>
         /// Shows details of a specific recipe by its ID.
         /// </summary>
-        /// <param name="id">The ID of the recipe to show.</param>
-        /// <returns>A view with the RecipeDto object.</returns>
+        /// <param name="id">The ID of the recipe to display.</param>
+        /// <returns>A view displaying the details of the RecipeDto object.</returns>
         // Get: Recipe/Show/{id}
         public ActionResult Show(int id)
         {
@@ -80,8 +91,11 @@ namespace Passion_Project.Controllers
         /// </summary>
         /// <returns>A view for creating a new recipe.</returns>
         // GET: Recipe/New
+        [Authorize]
         public ActionResult New()
         {
+            ViewBag.UserId = User.Identity.GetUserId();
+            ViewBag.UserName = User.Identity.Name;
             return View();
         }
 
@@ -93,9 +107,13 @@ namespace Passion_Project.Controllers
         /// <returns>Redirects to the list of recipes on success, or an error view on failure.</returns>
         //POST: Recipe/Create
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Recipe recipe)
         {
             //curl -H "Content-Type:application/json" -d @recipe.json https://localhost:44399/api/recipedata/addrecipe
+
+            recipe.UserId = User.Identity.GetUserId();
+            recipe.UserName = User.Identity.Name;
 
             Debug.WriteLine("the json payload is :");
 
@@ -111,11 +129,13 @@ namespace Passion_Project.Controllers
             HttpResponseMessage response = client.PostAsync(url, content).Result;
             if (response.IsSuccessStatusCode)
             {
+                Debug.WriteLine("Recipe created successfully.");
                 return RedirectToAction("List");
             }
             else
             {
-                return RedirectToAction("Error");
+                Debug.WriteLine("Error creating recipe.");
+                return View("Error");
             }
         }
 
@@ -125,6 +145,7 @@ namespace Passion_Project.Controllers
         /// <param name="id">The ID of the recipe to edit.</param>
         /// <returns>A view with the RecipeDto object.</returns>
         //GET: Recipe/Edit/4
+        [Authorize]
         public ActionResult Edit(int id)
         {
             //curl https://localhost:44399/api/recipedata/findrecipe/{id}
@@ -146,6 +167,7 @@ namespace Passion_Project.Controllers
         /// <returns>Redirects to the recipe details on success, or an error view on failure.</returns>
         //POST: Recipe/Update/3
         [HttpPost]
+        [Authorize]
         public ActionResult Update(int id, Recipe recipe)
         {
             try
@@ -154,7 +176,6 @@ namespace Passion_Project.Controllers
                 Debug.WriteLine(recipe.RecipeName);
                 Debug.WriteLine(recipe.RecipeIngredient);
                 Debug.WriteLine(recipe.RecipeInstruction);
-                Debug.WriteLine(recipe.RecipeAuthor);
 
                 //serialize into JSON
                 //Send the request to the API
@@ -192,6 +213,7 @@ namespace Passion_Project.Controllers
         /// <returns>A view with the RecipeDto object.</returns>
         //GET: Recipe/DeleteConfirm/3
         [HttpGet]
+        [Authorize]
         public ActionResult DeleteConfirm(int id)
         {
             string url = "FindRecipe/" + id;
@@ -207,6 +229,7 @@ namespace Passion_Project.Controllers
         /// <returns>Redirects to the list of recipes on success, or an error view on failure.</returns>
         // POST: Recipe/Delete/3
         [HttpPost]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             string url = "DeleteRecipe/" + id;

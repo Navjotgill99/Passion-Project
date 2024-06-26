@@ -7,32 +7,36 @@
       "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\comment\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\recipe\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\recipe\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\recipe\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\recipe\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\comment\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\comment\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\recipe\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\recipe\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\recipe\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\recipe\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\comment\\deleteconfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\comment\\deleteconfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\recipe\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\recipe\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\recipe\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\recipe\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\comment\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\comment\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\controllers\\commentdatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\commentdatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|c:\\users\\navjo\\source\\repos\\passion-project\\passion project\\controllers\\recipedatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A8CEAF4-806C-4FB0-9AD9-E2CEB5C8D949}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\recipedatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,25 +46,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DeleteConfirm.cshtml",
-              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Comment\\DeleteConfirm.cshtml",
-              "RelativeDocumentMoniker": "Passion Project\\Views\\Comment\\DeleteConfirm.cshtml",
-              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Comment\\DeleteConfirm.cshtml",
-              "RelativeToolTip": "Passion Project\\Views\\Comment\\DeleteConfirm.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-24T19:12:50.354Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -71,7 +58,33 @@
               "RelativeToolTip": "Passion Project\\Views\\Comment\\Show.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-24T19:02:12.49Z",
+              "WhenOpened": "2024-06-26T06:24:02.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\Recipe\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\Edit.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\Recipe\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-26T06:23:40.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\Error.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\Recipe\\Error.cshtml",
+              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\Error.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\Recipe\\Error.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-26T06:23:39.479Z",
               "EditorCaption": ""
             },
             {
@@ -82,74 +95,74 @@
               "RelativeDocumentMoniker": "Passion Project\\Views\\Recipe\\List.cshtml",
               "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\List.cshtml",
               "RelativeToolTip": "Passion Project\\Views\\Recipe\\List.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-24T18:57:45.522Z",
+              "WhenOpened": "2024-06-26T06:23:32.603Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Comment\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Passion Project\\Views\\Comment\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Comment\\Edit.cshtml",
-              "RelativeToolTip": "Passion Project\\Views\\Comment\\Edit.cshtml",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-24T18:56:42.985Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "List.cshtml",
-              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Comment\\List.cshtml",
-              "RelativeDocumentMoniker": "Passion Project\\Views\\Comment\\List.cshtml",
-              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Comment\\List.cshtml",
-              "RelativeToolTip": "Passion Project\\Views\\Comment\\List.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-24T18:55:55.309Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Show.cshtml",
-              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\Show.cshtml",
-              "RelativeDocumentMoniker": "Passion Project\\Views\\Recipe\\Show.cshtml",
-              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\Show.cshtml",
-              "RelativeToolTip": "Passion Project\\Views\\Recipe\\Show.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-24T17:32:55.868Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CommentController.cs",
-              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Controllers\\CommentController.cs",
-              "RelativeDocumentMoniker": "Passion Project\\Controllers\\CommentController.cs",
-              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Controllers\\CommentController.cs",
-              "RelativeToolTip": "Passion Project\\Controllers\\CommentController.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAgwDUAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T17:29:12.438Z",
+              "WhenOpened": "2024-06-26T06:22:30.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "CommentDataController.cs",
-              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Controllers\\CommentDataController.cs",
-              "RelativeDocumentMoniker": "Passion Project\\Controllers\\CommentDataController.cs",
-              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Controllers\\CommentDataController.cs",
-              "RelativeToolTip": "Passion Project\\Controllers\\CommentDataController.cs",
-              "ViewState": "AQIAAJYAAAAAAAAAAAAowBQAAAAvAAAA",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-26T06:22:13.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "New.cshtml",
+              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\New.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\Recipe\\New.cshtml",
+              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\New.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\Recipe\\New.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-26T05:18:16.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Show.cshtml",
+              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\Show.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\Recipe\\Show.cshtml",
+              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Views\\Recipe\\Show.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\Recipe\\Show.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-26T05:16:53.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RecipeDataController.cs",
+              "DocumentMoniker": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Controllers\\RecipeDataController.cs",
+              "RelativeDocumentMoniker": "Passion Project\\Controllers\\RecipeDataController.cs",
+              "ToolTip": "C:\\Users\\navjo\\source\\repos\\Passion-Project\\Passion Project\\Controllers\\RecipeDataController.cs",
+              "RelativeToolTip": "Passion Project\\Controllers\\RecipeDataController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T17:28:43.156Z",
+              "WhenOpened": "2024-06-26T04:57:06.998Z",
               "EditorCaption": ""
             }
           ]

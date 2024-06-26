@@ -10,7 +10,8 @@
         <a class="navlink" href="/Recipe/Edit/@Model.Recipe.RecipeId">Edit Recipe</a>
         <a class="navlink" href="/Recipe/DeleteConfirm/@Model.Recipe.RecipeId">Delete Recipe</a>
     </nav>
-    <h2>@Model.Recipe.RecipeName</h2> (<strong>User: </strong> @Model.Recipe.RecipeAuthor)
+    <h2>@Model.Recipe.RecipeName</h2> (<strong>User: </strong> @Model.Recipe.UserName)
+    <p><strong>RecipeId: </strong>@Model.Recipe.RecipeId</p>
     <p><strong>Ingredients: </strong>@Model.Recipe.RecipeIngredient</p>
     <p><strong>Instructions: </strong>@Model.Recipe.RecipeInstruction</p>
 
@@ -22,7 +23,7 @@
     @foreach (var comment in Model.Comments)
     {
         <div>
-            <p><strong>[UserId: @comment.UserId]: </strong> @comment.CommentText <i>(@comment.CommentTime.ToString("g"))</i></p>
+            <p><strong>[UserName: @comment.UserName]: </strong> @comment.CommentText <i>(@comment.CommentTime.ToString("g"))</i></p>
             <nav>
                 <a class="navlink" href="/Comment/Edit/@comment.CommentId">Edit Comment</a>
                 <a class="navlink" href="/Comment/DeleteConfirm/@comment.CommentId">Delete Comment</a>

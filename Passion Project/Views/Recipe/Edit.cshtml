@@ -3,32 +3,39 @@
     ViewBag.Title = "Edit";
 }
 <div class="main-container">
-    <nav>
-        <a class="navlink" href="/Recipe/Show/@Model.RecipeId">Go back to Recipe</a>
-    </nav>
+    @if (Model != null)
+    {
+        <nav>
+            <a class="navlink" href="/Recipe/Show/@Model.RecipeId">Go back to Recipe</a>
+        </nav>
 
-    <h2>Edit Recipe</h2>
+        <h2>Edit Recipe</h2>
 
-    <form action="/Recipe/Update/@Model.RecipeId" method="POST">
-        <div>
-            <label for="RecipeName">Name: </label>
-            <input type="text" name="RecipeName" value="@Model.RecipeName" />
-        </div>
-        <div>
-            <label for="RecipeIngredient">Ingredients: </label>
-            <input type="text" name="RecipeIngredient" value="@Model.RecipeIngredient" />
-        </div>
-        <div>
-            <label for="RecipeInstruction">Instructions: </label>
-            <input type="text" name="RecipeInstruction" value="@Model.RecipeInstruction" />
-        </div>
-        <div>
-            <label for="RecipeAuthor">Author: </label>
-            <input type="text" name="RecipeAuthor" value="@Model.RecipeAuthor" />
-        </div>
-        <div>
-            <button type="submit">Update</button>
-        </div>
-    </form>
+        <form action="/Recipe/Update/@Model.RecipeId" method="POST">
+            <div>
+                <label for="RecipeName">Name: </label>
+                <input type="text" name="RecipeName" value="@Model.RecipeName" />
+            </div>
+            <div>
+                <label for="RecipeIngredient">Ingredients: </label>
+                <input type="text" name="RecipeIngredient" value="@Model.RecipeIngredient" />
+            </div>
+            <div>
+                <label for="RecipeInstruction">Instructions: </label>
+                <input type="text" name="RecipeInstruction" value="@Model.RecipeInstruction" />
+            </div>
+            <div>
+                <label for="RecipeUser">User: </label>
+                <input type="text" name="RecipeUser" value="@Model.UserName" />
+            </div>
+            <div>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+    }
+    else
+    {
+        <p>Error: Recipe not found.</p>
+    }
 </div>
 

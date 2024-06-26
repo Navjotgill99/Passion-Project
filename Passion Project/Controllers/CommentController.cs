@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using Passion_Project.Models;
 using System.Web.Script.Serialization;
+using Microsoft.AspNet.Identity;
+using System.Diagnostics;
 
 namespace Passion_Project.Controllers
 {
@@ -48,6 +50,11 @@ namespace Passion_Project.Controllers
             return View(Comment);
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
+
 
         /// <summary>
         /// Displays the view for creating a new comment.
@@ -55,15 +62,17 @@ namespace Passion_Project.Controllers
         /// <param name="recipeId">The ID of the recipe to which the comment belongs.</param>
         /// <returns>The view for creating a new comment.</returns>
         // GET: Comment/New/{recipeId}
+        [Authorize]
         public ActionResult New(int recipeId)
         {
-            Comment comment = new Comment
+            CommentDto commentDto = new CommentDto
             {
                 RecipeId = recipeId,
-                UserId = 2 //Assume logged-in user Id is 2 for now
+                UserId = User.Identity.GetUserId(),
+                UserName = User.Identity.Name
             };
-            
-            return View(comment);
+
+            return View(commentDto);
         }
 
         /// <summary>
@@ -73,9 +82,13 @@ namespace Passion_Project.Controllers
         /// <returns>Redirects to the recipe details page on success, or an error view on failure.</returns>
         // POST: Comment/Create
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Comment comment)
         {
             comment.CommentTime = DateTime.Now;
+            comment.UserId = User.Identity.GetUserId();
+            comment.User.UserName = User.Identity.Name;
+
             string url = "AddComment";
 
             string jsonpayload = jss.Serialize(comment);
@@ -83,13 +96,20 @@ namespace Passion_Project.Controllers
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
 
+            Debug.WriteLine("Request URL: " + url);
+            Debug.WriteLine("Request Payload: " + jsonpayload);
+
             HttpResponseMessage response = client.PostAsync(url, content).Result;
+            Debug.WriteLine("Response Status Code: " + response.StatusCode);
+
             if (response.IsSuccessStatusCode)
             {
+                CommentDto createdcomment = response.Content.ReadAsAsync<CommentDto>().Result;
                 return RedirectToAction("Show", "Recipe", new { id = comment.RecipeId });
             }
             else
             {
+                Debug.WriteLine("Error: Failed to create comment. Status Code: " + response.StatusCode);
                 return RedirectToAction("Error");
             }
         }
@@ -100,14 +120,15 @@ namespace Passion_Project.Controllers
         /// <param name="id">The ID of the comment to edit.</param>
         /// <returns>The view for editing the comment.</returns>
         // GET: Comment/Edit/{id}
+        [Authorize]
         public ActionResult Edit(int id)
         {
             string url = "FindComment/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
-            CommentDto comment = response.Content.ReadAsAsync<CommentDto>().Result;
+            CommentDto selectedComment = response.Content.ReadAsAsync<CommentDto>().Result;
 
-            return View(comment);
+            return View(selectedComment);
         }
 
         /// <summary>
@@ -118,26 +139,23 @@ namespace Passion_Project.Controllers
         /// <returns>Redirects to the recipe details page on success, or an error view on failure.</returns>
         // POST: Comment/Update/{id}
         [HttpPost]
+        [Authorize]
         public ActionResult Update(int id, CommentDto commentDto)
         {
+            commentDto.CommentTime = DateTime.Now;
+            commentDto.UserId = User.Identity.GetUserId();
+            commentDto.UserName = User.Identity.Name;
+
             if (!ModelState.IsValid)
             {
                 return View(commentDto);
             }
 
-            // Convert CommentDto to Comment model
-            Comment comment = new Comment
-            {
-                CommentId = commentDto.CommentId,
-                CommentText = commentDto.CommentText,
-                CommentTime = commentDto.CommentTime,
-                RecipeId = commentDto.RecipeId,
-                UserId = commentDto.UserId
-            };
+           
 
             string url = "UpdateComment/" + id;
 
-            string jsonpayload = jss.Serialize(comment);
+            string jsonpayload = jss.Serialize(commentDto);
 
             HttpContent content = new StringContent(jsonpayload);
             content.Headers.ContentType.MediaType = "application/json";
@@ -146,7 +164,7 @@ namespace Passion_Project.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("Show", "Recipe", new { id = comment.RecipeId });
+                return RedirectToAction("Show", "Recipe", new { id = commentDto.RecipeId });
             }
             else
             {
@@ -161,12 +179,22 @@ namespace Passion_Project.Controllers
         /// <returns>A view with the CommentDto object.</returns>
         //GET: Comment/DeleteConfirm/{id}
         [HttpGet]
+        [Authorize]
         public ActionResult DeleteConfirm(int id)
         {
             string url = "FindComment/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
-            CommentDto comment = response.Content.ReadAsAsync<CommentDto>().Result;
-            return View(comment);
+
+            if (response.IsSuccessStatusCode)
+            {
+                CommentDto comment = response.Content.ReadAsAsync<CommentDto>().Result;
+                return View(comment);
+            }
+            else
+            {
+                // Handle case where comment retrieval fails
+                return RedirectToAction("Error");
+            }
         }
 
         /// <summary>
@@ -176,12 +204,13 @@ namespace Passion_Project.Controllers
         /// <returns>Redirects to the recipe details page on success, or an error view on failure.</returns>
         // POST: Comment/Delete/{id}
         [HttpPost]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             string url = "DeleteComment/" + id;
-            //HttpContent content = new StringContent("");
-            //content.Headers.ContentType.MediaType = "application/json";
-            HttpResponseMessage response = client.PostAsync(url, null).Result;
+            HttpContent content = new StringContent("");
+            content.Headers.ContentType.MediaType = "application/json";
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
 
             if (response.IsSuccessStatusCode)
             {

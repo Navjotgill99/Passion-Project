@@ -23,10 +23,12 @@ namespace Passion_Project.Models
         public virtual Recipe Recipe { get; set; }
 
 
-        //Many users can comment many times
+        //A Comment is Posted by one user
+        //A User can post many comments
         [ForeignKey("User")]
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
+
     }
 
     public class CommentDto
@@ -35,7 +37,9 @@ namespace Passion_Project.Models
         public string CommentText { get; set; }
         public DateTime CommentTime { get; set; }
         public int RecipeId { get; set; }
-        public int UserId { get; set; }
+        public string RecipeName { get; set; }
+        public string UserName { get; set; }
+        public string UserId { get; set; }
 
     }
 }

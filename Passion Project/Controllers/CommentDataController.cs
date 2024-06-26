@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Microsoft.AspNet.Identity;
 using Passion_Project.Models;
 
 namespace Passion_Project.Controllers
@@ -32,7 +33,7 @@ namespace Passion_Project.Controllers
                 CommentDto.CommentText = Comment.CommentText;
                 CommentDto.CommentTime = Comment.CommentTime;
                 CommentDto.RecipeId = Comment.RecipeId;
-                //CommentDto.UserName = Comment.User.UserName;
+                CommentDto.UserName = Comment.User.UserName;
 
                 CommentDtos.Add(CommentDto);
             }
@@ -58,7 +59,7 @@ namespace Passion_Project.Controllers
                 CommentText = c.CommentText,
                 CommentTime = c.CommentTime,
                 RecipeId = c.RecipeId,
-                UserId = c.UserId
+                UserName = c.User.UserName,
             }));
 
             return commentDtos;
@@ -85,8 +86,8 @@ namespace Passion_Project.Controllers
                 CommentId = comment.CommentId,
                 CommentText = comment.CommentText,
                 CommentTime = comment.CommentTime,
-                RecipeId = comment.RecipeId,
-                UserId = comment.UserId
+                RecipeName = comment.Recipe.RecipeName,
+                UserName = comment.User.UserName,
             };
 
             return Ok(commentDto);
@@ -98,6 +99,7 @@ namespace Passion_Project.Controllers
         /// <param name="comment">The comment to add.</param>
         /// <returns>An IHttpActionResult indicating success or failure.</returns>
         [HttpPost]
+        [Authorize]
         [Route("api/CommentData/AddComment")]
         public IHttpActionResult AddComment(Comment comment)
         {
@@ -111,6 +113,10 @@ namespace Passion_Project.Controllers
             {
                 comment.CommentTime = DateTime.Now; // or set to a valid minimum value
             }
+            comment.UserId = User.Identity.GetUserId();
+            comment.User.UserName = User.Identity.Name;
+
+
             db.Comments.Add(comment);
             db.SaveChanges();
 
@@ -124,6 +130,7 @@ namespace Passion_Project.Controllers
         /// <param name="comment">The updated comment.</param>
         /// <returns>An IHttpActionResult indicating success or failure.</returns>
         [HttpPost]
+        [Authorize]
         [Route("api/CommentData/UpdateComment/{id}")]
         public IHttpActionResult UpdateComment(int id, Comment comment)
         {
@@ -137,24 +144,33 @@ namespace Passion_Project.Controllers
                 return BadRequest();
             }
 
-            // Ensure CommentTime is within the valid range for SQL Server datetime
-            if (comment.CommentTime < (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue)
+            var existingComment = db.Comments.Find(id);
+            if (existingComment == null)
             {
-                comment.CommentTime = DateTime.Now; // or set to a valid minimum value
+                return NotFound();
             }
 
-            db.Entry(comment).State = EntityState.Modified;
+            existingComment.CommentText = comment.CommentText;
+            existingComment.CommentTime = DateTime.Now;
+
+            db.Entry(existingComment).State = EntityState.Modified;
 
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException e)
+            catch (DbUpdateConcurrencyException)
             {
-                return InternalServerError(e);
+                if (!CommentExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
-            
-
+ 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -164,6 +180,7 @@ namespace Passion_Project.Controllers
         /// <param name="id">The ID of the comment to delete.</param>
         /// <returns>An IHttpActionResult indicating success or failure.</returns>
         [HttpPost]
+        [Authorize]
         [Route("api/CommentData/DeleteComment/{id}")]
         public IHttpActionResult DeleteComment(int id)
         {
@@ -177,6 +194,20 @@ namespace Passion_Project.Controllers
             db.SaveChanges();
 
             return Ok(comment);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private bool CommentExists(int id)
+        {
+            return db.Comments.Count(r => r.CommentId == id) > 0;
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Microsoft.AspNet.Identity;
 using Passion_Project.Models;
 
 namespace Passion_Project.Controllers
@@ -16,9 +17,9 @@ namespace Passion_Project.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         /// <summary>
-        /// Returns a list of recipes in the system
+        /// Retrieves a list of all recipes in the system.
         /// </summary>
-        /// <returns>An array of RecipeDto objects.</returns>
+        /// <returns>A list of RecipeDto objects representing each recipe.</returns>
         // <example>
         // GET: /api/RecipeData/ListRecipes -> [{"RecipeId":2,"RecipeName":"Chocolate Chip Cookies","RecipeIngredient":"- 200g flour - 100g sugar - - 200g chocolate chips" and so on,"RecipeInstruction":"1. Preheat oven to 175°C (350°F). 2. Mix butter, sugars, egg, and vanilla. 3. Add flour and baking soda, mix well." ,"RecipeAuthor":"Nav"}]
         //</example>
@@ -26,46 +27,56 @@ namespace Passion_Project.Controllers
         [Route("api/RecipeData/ListRecipes")]
         public List<RecipeDto> ListRecipes()
         {
-            List<Recipe> Recipes = db.Recipes.ToList();
+            List<Recipe> Recipes = db.Recipes.Include(r => r.User).ToList();
+
+            Debug.WriteLine("Number of recipes retrieved: " + Recipes.Count);
 
             List<RecipeDto> RecipeDtos = new List<RecipeDto>();
 
-            Recipes.ForEach(r => RecipeDtos.Add(new RecipeDto()
+            Recipes.ForEach(r =>
             {
-                RecipeId = r.RecipeId,
-                RecipeName = r.RecipeName,
-                RecipeIngredient = r.RecipeIngredient,
-                RecipeInstruction = r.RecipeInstruction,
-                RecipeAuthor = r.RecipeAuthor
-            }));
+                Debug.WriteLine("Recipe retrieved: " + r.RecipeName);
+
+                RecipeDtos.Add(new RecipeDto()
+                {
+                    RecipeId = r.RecipeId,
+                    RecipeName = r.RecipeName,
+                    RecipeIngredient = r.RecipeIngredient,
+                    RecipeInstruction = r.RecipeInstruction,
+                    UserName = r.User != null ? r.User.UserName : "Unknown"
+                });
+            });   
 
             return RecipeDtos;
         }
 
-        
+
         /// <summary>
-        /// Returns one recipe by its ID.
+        /// Retrieves a specific recipe by its ID.
         /// </summary>
         /// <param name="id">The ID of the recipe to find.</param>
-        /// <returns>A singular RecipeDto object.</returns>
+        /// <returns>The RecipeDto object representing the retrieved recipe.</returns>
         [ResponseType(typeof(Recipe))]
         [HttpGet]
         [Route("api/RecipeData/FindRecipe/{id}")]
         public IHttpActionResult FindRecipe(int id)
         {
-            Recipe Recipe = db.Recipes.Find(id);
+            Recipe Recipe = db.Recipes.Include(r => r.User).FirstOrDefault(r => r.RecipeId == id);
+
+            if (Recipe == null)
+            {
+                return NotFound();
+            }
+
             RecipeDto RecipeDto = new RecipeDto()
             {
                 RecipeId = Recipe.RecipeId,
                 RecipeName = Recipe.RecipeName,
                 RecipeIngredient = Recipe.RecipeIngredient,
                 RecipeInstruction = Recipe.RecipeInstruction,
-                RecipeAuthor = Recipe.RecipeAuthor
+                UserName = Recipe.User != null ? Recipe.User.UserName : "Unknown"
             };
-            if (Recipe == null)
-            {
-                return NotFound();
-            }
+            
             return Ok(RecipeDto);
         }
 
@@ -73,9 +84,10 @@ namespace Passion_Project.Controllers
         /// Adds a new recipe to the system.
         /// </summary>
         /// <param name="recipe">The Recipe object to add.</param>
-        /// <returns>HTTP response indicating success or failure.</returns>
+        /// <returns>A 200 OK response if the recipe is successfully added, otherwise a 400 Bad Request response.</returns>
         [ResponseType(typeof (Recipe))]
         [HttpPost]
+        [Authorize]
         [Route("api/RecipeData/AddRecipe")]
         public IHttpActionResult AddRecipe(Recipe recipe)
         {
@@ -84,9 +96,16 @@ namespace Passion_Project.Controllers
                 return BadRequest(ModelState);
             }
 
+            // Assign the current user's ID and username to the recipe
+            recipe.UserId = User.Identity.GetUserId();
+            recipe.UserName = User.Identity.Name;
+
+            // Add the recipe to the collection
             db.Recipes.Add(recipe);
+
             db.SaveChanges();
-            return Ok();
+
+            return Ok(recipe);
         }
 
 
@@ -95,9 +114,10 @@ namespace Passion_Project.Controllers
         /// </summary>
         /// <param name="id">The ID of the recipe to update.</param>
         /// <param name="recipe">The updated Recipe object.</param>
-        /// <returns>HTTP response indicating success or failure.</returns>
+        /// <returns>A 204 No Content response if the update is successful, otherwise a 400 Bad Request response.</returns>
         [ResponseType(typeof (void))]
         [HttpPost]
+        [Authorize]
         [Route("api/RecipeData/UpdateRecipe/{id}")]
         public IHttpActionResult UpdateRecipe(int id, Recipe recipe)
         {
@@ -143,9 +163,10 @@ namespace Passion_Project.Controllers
         /// Deletes a recipe by its ID.
         /// </summary>
         /// <param name="id">The ID of the recipe to delete.</param>
-        /// <returns>HTTP response indicating success or failure.</returns>
+        /// <returns>A 200 OK response if the recipe is successfully deleted, otherwise a 404 Not Found response.</returns>
         [ResponseType(typeof(Recipe))]
         [HttpPost]
+        [Authorize]
         [Route("api/RecipeData/DeleteRecipe/{id}")]
         public IHttpActionResult DeleteRecipe(int id)
         {
@@ -176,7 +197,7 @@ namespace Passion_Project.Controllers
 
 
         /// <summary>
-        /// Checks if a recipe exists by its ID.
+        /// Checks if a recipe exists in the database by its ID.
         /// </summary>
         /// <param name="id">The ID of the recipe to check.</param>
         /// <returns>True if the recipe exists, false otherwise.</returns>

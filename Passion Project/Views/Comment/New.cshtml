@@ -1,4 +1,4 @@
-﻿@model Passion_Project.Models.Comment
+﻿@model Passion_Project.Models.CommentDto
 @{
     ViewBag.Title = "New";
 }
@@ -10,7 +10,10 @@
     <h2>Add a Comment</h2>
     <form action="/Comment/Create" method="post">
         <input type="hidden" name="RecipeId" value="@Model.RecipeId" />
-        <input type="hidden" name="UserId" value="2" /> <!-- Assume logged-in user ID is 1 for now -->
+        <div>
+            <label for="UserName">User: </label>
+            <input type="text" name="UserName" value="@Model.UserName" />
+        </div>
         <div>
             <label for="CommentText">Comment: </label>
             <textarea name="CommentText" required></textarea>
