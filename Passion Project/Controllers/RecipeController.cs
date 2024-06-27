@@ -69,7 +69,7 @@ namespace Passion_Project.Controllers
             HttpResponseMessage commentsResponse = client.GetAsync(commentsUrl).Result;
             IEnumerable<CommentDto> Comments = commentsResponse.Content.ReadAsAsync<IEnumerable<CommentDto>>().Result;
 
-            var viewModel = new RecipeCommentsViewModel
+            RecipeCommentsViewModel viewModel = new RecipeCommentsViewModel
             {
                 Recipe = Recipe,
                 Comments = Comments

@@ -11,7 +11,6 @@
     @foreach (var Recipe in Model)
     {
         <div class="list-group-item row">
-            @*@Url.Action("Show", "Recipe", new { id = Recipe.RecipeId })*@
             <div class="col-md-12"><a href="Show/@Recipe.RecipeId">@Recipe.RecipeName</a></div>
         </div>
     }

@@ -68,7 +68,7 @@ namespace Passion_Project.Controllers
                 return NotFound();
             }
 
-            RecipeDto RecipeDto = new RecipeDto()
+            RecipeDto recipeDto = new RecipeDto()
             {
                 RecipeId = Recipe.RecipeId,
                 RecipeName = Recipe.RecipeName,
@@ -77,7 +77,7 @@ namespace Passion_Project.Controllers
                 UserName = Recipe.User != null ? Recipe.User.UserName : "Unknown"
             };
             
-            return Ok(RecipeDto);
+            return Ok(recipeDto);
         }
 
         /// <summary>
